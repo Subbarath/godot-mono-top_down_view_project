@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Main.cs" type="Script" id=1]
+[ext_resource path="res://scenes/player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://icon.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 25.4399, 33.7887 )
+
+[node name="Main" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="YSort" type="YSort" parent="."]
+
+[node name="KinematicBody2D" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 277, 265 )
+
+[node name="Obstacle" type="StaticBody2D" parent="YSort"]
+position = Vector2( 499.799, 235.062 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="YSort/Obstacle"]
+position = Vector2( 1, -115.078 )
+scale = Vector2( 1, 3.87744 )
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Obstacle"]
+position = Vector2( 0.26487, -24.5916 )
+shape = SubResource( 1 )
